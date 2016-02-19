@@ -1,0 +1,33 @@
+footer{
+	text-align: center;
+}
+#nombre_Objeto{
+	text-align: center;
+	font-size: 2em;
+}
+div.centraTabla{
+	text-align: center;
+}
+div.centraTabla table{
+	margin: 0 auto;
+	text-align: left;
+}
+#tabla{
+	text-align: center;
+	background-color: #BEF781;
+	border: solid;
+	border-width: 0.1em;
+	border-spacing: 0px;
+
+}
+#tabla th{
+	background-color: #2EFE2E;
+	border-bottom: solid;
+	border-bottom-width: 0.1em; 
+	border-left: solid 0.1em;
+}
+#tabla td{
+	border-bottom: solid;
+	border-bottom-width: 0.1em;
+	border-left: solid 0.1em; 
+}

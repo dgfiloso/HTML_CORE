@@ -1,0 +1,57 @@
+html{
+	background: #58FA58
+
+}
+body{
+	text-align: center;
+	font-family: Helvetica;
+	font-size: 1em;
+}
+
+h1{
+	text-align: center;
+	font-family: Helvetica;
+	font: bold 3em;
+	
+}
+
+footer{
+	text-align: center;
+	font-family: Helvetica;
+	font-style: italic;
+	font-size: 1em;
+}
+img{
+	width: 100px;
+	height: 137.5px;
+}
+iframe{
+	width: 280px;
+	height: 157.5px;
+}
+div.centraTabla{
+	text-align: center;
+}
+div.centraTabla table{
+	margin: 0 auto;
+	text-align: left;
+}
+#Navegacion{
+	font-size: 1.5em;
+	font: bold;
+}
+#Asignaturas{
+	border-top-width:0.1em;
+	border-top-style: solid;
+	border-top-color: #0B610B;
+	border-spacing: 0px;
+	text-align: center;
+}
+#Asignaturas th{
+	border-bottom: 0.1em solid #0B610B;
+	background-color:#F4FA58;
+}
+#Asignaturas td{
+	border-bottom: 0.1em solid #0B610B;
+	background-color: #F4FA58;
+}

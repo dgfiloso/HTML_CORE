@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> CORE2016 P2 </title>
+		<link href="normal.css" rel="stylesheet" type="text/css" media="screen and (min-device-width:480px)">
+		<link href="movil.css" rel="stylesheet" type="text/css" media="screen  and (max-device-width:480px)">
+		<div id="nombre_Objeto"></div>
+		<script type="text/javascript">
+			function crearTabla(entrada){
+				var introducirFila = document.getElementById("tabla");
+				introducirFila.innerHTML += "<tr><th>Nombre de la propiedad</th><th>Valor</th></tr>";
+				for(var propiedad in entrada){
+					if(typeof entrada[propiedad] === "object"){
+						introducirFila.innerHTML += "<tr><td>" + propiedad + "</td><td>No imprimible (tipo object)</td></tr>";
+					} else if(typeof entrada[propiedad] === "function"){
+						introducirFila.innerHTML += "<tr><td>" + propiedad + "</td><td>No imprimible (tipo function)</td></tr>";
+					} else{
+						introducirFila.innerHTML += "<tr><td>" + propiedad + "</td><td>" + entrada[propiedad] + "</td></tr>";
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p id="main">
+			<div class="centraTabla">
+				<table id="tabla"></table>
+			</div>	
+			<script type="text/javascript">
+				var objString = prompt("Objeto al que extraer las propiedades");
+				var eleccion = 1;
+				var objStr1 = "";
+				var objStr2 = "";
+				for(var i in objString){
+					if(eleccion === 1){
+						if(objString[i] === "."){
+							eleccion = 2;
+						} else{
+							objStr1 += objString[i];
+						}
+
+					} else if(eleccion === 2){
+						objStr2 += objString[i];
+					}
+				}
+				if(objStr2 === ""){
+					var objeto = this[objStr1];
+				} else{
+					var objeto = this[objStr1][objStr2];
+				}
+				crearTabla(objeto);
+			</script>
+		</p>
+	</body>
+	<footer> David González Filoso <br> d.gfiloso@alumnos.upm.es </footer>
+	<script type="text/javascript">
+		document.getElementById("nombre_Objeto").innerHTML = "El nombre del objeto es: " + objString;
+	</script>
+</html>
+
+
