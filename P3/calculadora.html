@@ -67,26 +67,17 @@
 			});
 			$("#raiz").on("click", function(){
 				var num = $("#pantalla");
-				num.val(Math.sqrt(num.val()));
+				var numero = +num.val();
+				if(numero < 0){
+					num.val("ERROR");
+				}else{
+					num.val(Math.sqrt(numero));
+				}
 			});
 			$("#pentera").on("click", function(){
 				var num = $("#pantalla");
 				var numero = +num.val();
-				var p_entera = 0;
-				if(numero >= 0){
-					while(numero >= 1){
-						numero--;
-						p_entera++;
-					}
-					num.val(p_entera);
-				}else if(numero < 0){
-					while(numero <= -1){
-						numero++;
-						p_entera--;
-					}
-					num.val(p_entera);
-				}
-				
+				num.val(Math.round(numero));
 			});
 			$("#potencia2").on("click", function(){
 				var num = $("#pantalla");
@@ -95,13 +86,16 @@
 			$("#factorial").on("click", function(){
 				var num = $("#pantalla");
 				var fact = 1;
-				if(num.val() === 0){
+				var numero = num.val();
+				if(numero === 0){
 					num.val(1);
 				}
-				else if(num.val()<0){
+				else if(numero<0){
+					num.val("ERROR");
+				}else if(numero%1 !== 0){
 					num.val("ERROR");
 				}else{
-					var temp = num.val();
+					var temp = numero;
 					while(temp>=1){
 						fact = fact*temp;
 						temp--;
@@ -118,7 +112,7 @@
 </head>
 <body>
 	<div id="main">
-		<p> Buenos días, bienvenido a la calculadora de David González Filoso (d.gfiloso@alumnos.upm.es) </p>
+		<header> Buenos días, bienvenido a la calculadora de David González Filoso (d.gfiloso@alumnos.upm.es) </header>
 		<p> Número: <input type="text" id="pantalla"> </p>
 		<p>
 			<button id="suma"> + </button>
