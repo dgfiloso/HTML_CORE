@@ -109,7 +109,9 @@ var server = net.createServer(function(socket){
 					for(var i=0; i<linea.length; i++){
 						var palabra = linea[i].split(", ");		//Separamos el nombre y el telefono de cada contacto
 						var contacto = {nombre:palabra[0],telf:palabra[1]};		//Creamos cada objeto contacto
-						agenda.push(contacto);					//Añadimos el contacto a la agenda
+						if((contacto.nombre.match(/[a-zñáéíóú0-9]+/ig)!==null)&&(contacto.telf !== undefined)){
+							agenda.push(contacto);					//Añadimos el contacto a la agenda
+						}
 					}
 				}
 			})
@@ -126,7 +128,7 @@ var server = net.createServer(function(socket){
 				socket.write("KO\n");
 			}else if((comando[1]===undefined)||(comando[2] ===undefined)){		//Si el primer y segundo parametro no estan definidos, error
 				socket.write("KO\n");
-			}else if(comando[1].match(/[a-zñáéíóú]+/ig)===null){		//Si el primer parametro no tiene letras, error
+			}else if(comando[1].match(/[a-zñáéíóú0-9]+/ig)===null){		//Si el primer parametro no tiene letras, error
 				socket.write("KO\n");
 			}else if((comando[2].match(/[0-9]+/)===null)||(comando[2].match(/[a-zñáéíóú]+/ig)!==null)){		//Si el segundo parametro no es un numero, error
 				socket.write("KO\n");
@@ -139,7 +141,7 @@ var server = net.createServer(function(socket){
 				socket.write("KO\n");
 			}else if(comando[1]===undefined){		//Si el parametro no esta definido, error
 				socket.write("KO\n");
-			}else if(comando[1].match(/[a-zñáéíóú]+/ig)===null){		//Si el parametro no tiene letras, error
+			}else if(comando[1].match(/[a-zñáéíóú0-9]+/ig)===null){		//Si el parametro no tiene letras, error
 				socket.write("KO\n");
 			}else{
 				getTel(comando[1], socket);
