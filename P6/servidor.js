@@ -100,7 +100,7 @@ var server = net.createServer(function(socket){
 	socket.setEncoding("utf8");			//Establecemos que los datos van a estar en UTF-8
 
 	fs.exists(fichero, function(exists){		//Comprobamos si ya existe el fichero
-		if(exists){
+		if((exists)&&(agenda.length === 0)){
 			fs.readFile(fichero, 'utf-8', function(err,data){		//Si existe lo leemos
 				if(err){
 					throw "KO\n";
